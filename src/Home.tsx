@@ -8,6 +8,7 @@ import Paragraph from './components/paragraph'
 import Quote from './components/quote'
 import Footer from './components/footer'
 import { useTranslation } from 'react-i18next'
+import i18n from './i18n'
 
 const StyleTypeWriter = styled.span`
   font-size: 36px;
@@ -38,6 +39,9 @@ const Home = () => {
 
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)]
 
+  const contactLink =
+    i18n.language === 'en' ? "I'd love to hear from you!" : 'contactez-moi !'
+
   if (randomQuote) {
     randomQuote.author = randomQuote.author.replace(/, type\.fit/g, '')
   }
@@ -48,7 +52,7 @@ const Home = () => {
       <Container>
         <Section>
           <Box display={{ md: 'flex' }}>
-            <Box flexGrow={1} zIndex={1} mt={100}>
+            <Box flexGrow={1} zIndex={1} mt="50px">
               <Heading as="h2" variant="page-title">
                 <StyleTypeWriter>
                   <Typewriter
@@ -75,9 +79,19 @@ const Home = () => {
           <Heading as="h3" variant="section-title" paddingTop={10}>
             <StyleSectionTitle>{t('about_me')}</StyleSectionTitle>
           </Heading>
-          <Paragraph>{t('paragraph1')}</Paragraph>
+          <Paragraph indent>{t('paragraph1')}</Paragraph>
           <Paragraph>{t('paragraph2')}</Paragraph>
-          <Paragraph>{t('paragraph3')}</Paragraph>
+          <Paragraph>
+            {t('paragraph3')}{' '}
+            <a href="/contact" className="font-semibold text-blue-400">
+              {contactLink}{' '}
+            </a>
+          </Paragraph>
+          <Paragraph
+            dangerouslySetInnerHTML={{
+              __html: t('paragraph4'),
+            }}
+          />
           <Quote>
             {randomQuote ? randomQuote.text : null}{' '}
             <cite>- {randomQuote ? randomQuote.author : null}</cite>

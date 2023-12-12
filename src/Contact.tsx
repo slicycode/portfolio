@@ -10,10 +10,9 @@ import {
   Heading,
 } from '@chakra-ui/react'
 import Section from './components/section'
-import { FaGithub } from 'react-icons/fa'
-import { FaTwitter } from 'react-icons/fa'
-import { FaInstagram } from 'react-icons/fa'
-import { FaLinkedin } from 'react-icons/fa'
+import { FaGithub, FaLinkedin } from 'react-icons/fa'
+import { IoMdMail } from 'react-icons/io'
+import { CiShare1 } from 'react-icons/ci'
 import React, { useState } from 'react'
 import emailjs from 'emailjs-com'
 import styled from '@emotion/styled'
@@ -82,7 +81,7 @@ const Contact = () => {
     <>
       <NavBar />
       <Container paddingTop={50}>
-        <Section>
+        <Section delay={0.2}>
           <Heading as="h2" variant="section-title" paddingTop={10}>
             <StyleSectionTitle>{t('contact')}</StyleSectionTitle>
           </Heading>
@@ -157,8 +156,8 @@ const Contact = () => {
         </Section>
 
         {/* Links */}
-        <Section delay={0.3}>
-          <List className="flex mt-16 justify-around">
+        <Section delay={0.25}>
+          <List className="flex mt-16 justify-center">
             <ListItem>
               <Link href="https://github.com/slicycode" target="_blank">
                 <Button
@@ -185,32 +184,32 @@ const Contact = () => {
               </Link>
             </ListItem>
             <ListItem>
-              <Link href="https://twitter.com/Slicy__" target="_blank">
-                <Button
-                  variant="ghost"
-                  colorScheme="teal"
-                  leftIcon={<Icon as={FaTwitter} />}
-                >
-                  Twitter
-                </Button>
-              </Link>
-            </ListItem>
-            <ListItem>
               <Link
-                href="https://www.instagram.com/elroulio_/?hl=en"
+                href="https://www.malt.fr/profile/julesdeparis"
                 target="_blank"
               >
                 <Button
                   variant="ghost"
                   colorScheme="teal"
-                  leftIcon={<Icon as={FaInstagram} />}
+                  leftIcon={<Icon as={CiShare1} />}
                 >
-                  Instagram
+                  Malt
+                </Button>
+              </Link>
+            </ListItem>
+            <ListItem>
+              <Link href="mailto:julesdeparispro@gmail.com" target="_blank">
+                <Button
+                  variant="ghost"
+                  colorScheme="teal"
+                  leftIcon={<Icon as={IoMdMail} />}
+                >
+                  Email
                 </Button>
               </Link>
             </ListItem>
           </List>
-          <Box opacity={0.6} fontSize="sm" className="mx-auto w-fit" mt="300px">
+          <Box opacity={0.6} fontSize="sm" className="mx-auto w-fit" mt="250px">
             &copy; {new Date().getFullYear()} {t('footer')}
           </Box>
         </Section>

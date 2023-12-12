@@ -1,10 +1,28 @@
-import styled from '@emotion/styled';
+import styled from '@emotion/styled'
 
-const Paragraph = styled.p`
+interface ParagraphProps {
+  children?: React.ReactNode
+  dangerouslySetInnerHTML?: any
+  indent?: boolean
+}
+
+const Paragraph = ({
+  children,
+  dangerouslySetInnerHTML,
+  indent,
+}: ParagraphProps) => {
+  const StyleParagraph = styled.p`
     text-align: justify;
-    text-indent: 2em;
+    text-indent: ${indent ? '2em' : '0'};
     padding-bottom: 1em;
     margin-top: 1em;
-`
+  `
+
+  return (
+    <StyleParagraph dangerouslySetInnerHTML={dangerouslySetInnerHTML}>
+      {children}
+    </StyleParagraph>
+  )
+}
 
 export default Paragraph
