@@ -12,7 +12,6 @@ import {
   MenuItem,
   MenuList,
   Stack,
-  useColorModeValue,
 } from '@chakra-ui/react'
 import { useTranslation } from 'react-i18next'
 import { NavLink } from 'react-router-dom'
@@ -35,8 +34,7 @@ const NavBar = () => {
       position="sticky"
       top={0}
       width="100%"
-      bg={useColorModeValue('#F0E7DB', '#202023b')}
-      backdropFilter="blur(10px)"
+      backdropFilter="blur(30px)"
       zIndex={1}
     >
       <Container
@@ -71,32 +69,16 @@ const NavBar = () => {
           mt={{ base: 4, nmd: 0 }}
           justifyContent={'space-evenly'}
         >
-          <NavLink
-            color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-            className="font-medium"
-            to="/cv"
-          >
+          <NavLink className="font-medium" to="/cv">
             CV
           </NavLink>
-          <NavLink
-            color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-            className="font-medium"
-            to="/works"
-          >
+          <NavLink className="font-medium" to="/works">
             {t('navbarItemWorks')}
           </NavLink>
-          <NavLink
-            color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-            className="font-medium"
-            to="/projects"
-          >
+          <NavLink className="font-medium" to="/projects">
             {t('navbarItemProjects')}
           </NavLink>
-          <NavLink
-            color={useColorModeValue('gray.800', 'whiteAlpha.900')}
-            className="font-medium"
-            to="/contact"
-          >
+          <NavLink className="font-medium" to="/contact">
             Contact
           </NavLink>
         </Stack>
