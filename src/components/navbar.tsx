@@ -1,26 +1,24 @@
-import { NavLink } from 'react-router-dom'
-import Logo from './logo'
-
+import { HamburgerIcon } from '@chakra-ui/icons'
 import {
-  Link,
   Box,
+  Button,
+  Container,
+  Flex,
+  Heading,
+  IconButton,
+  Link,
   Menu,
+  MenuButton,
   MenuItem,
   MenuList,
-  MenuButton,
-  IconButton,
-  useColorModeValue,
-  Heading,
-  Flex,
-  Container,
   Stack,
-  Button,
+  useColorModeValue,
 } from '@chakra-ui/react'
-
-import ThemeToggleButton from './theme-toggle-button'
-import { HamburgerIcon } from '@chakra-ui/icons'
-import i18n from '../i18n'
 import { useTranslation } from 'react-i18next'
+import { NavLink } from 'react-router-dom'
+import i18n from '../i18n'
+import Logo from './logo'
+import ThemeToggleButton from './theme-toggle-button'
 
 const changeLanguage = (ln: string) => {
   return () => {
@@ -34,12 +32,23 @@ const NavBar = () => {
   return (
     <Box
       as="nav"
-      w="100%"
-      bg={useColorModeValue('#F0E7DB', '#202023')}
-      style={{ backdropFilter: 'blur(10px)' }}
+      position="sticky"
+      top={0}
+      width="100%"
+      bg={useColorModeValue('#F0E7DB', '#202023b')}
+      backdropFilter="blur(10px)"
       zIndex={1}
     >
-      <Container display="flex" p={2} maxW="container.lg" alignContent="center">
+      <Container
+        display="flex"
+        py={2}
+        px={{
+          base: 2,
+          sm: 4,
+          xl: 0,
+        }}
+        maxW="container.lg"
+      >
         <Flex align="center">
           <Heading as="h1" size="lg" letterSpacing={'tighter'}>
             <Logo />
@@ -64,31 +73,40 @@ const NavBar = () => {
         >
           <NavLink
             color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+            className="font-medium"
             to="/cv"
           >
             CV
           </NavLink>
           <NavLink
             color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+            className="font-medium"
             to="/works"
           >
             {t('navbarItemWorks')}
           </NavLink>
           <NavLink
             color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+            className="font-medium"
             to="/projects"
           >
             {t('navbarItemProjects')}
           </NavLink>
           <NavLink
             color={useColorModeValue('gray.800', 'whiteAlpha.900')}
+            className="font-medium"
             to="/contact"
           >
             Contact
           </NavLink>
         </Stack>
 
-        <Box flex={1} alignContent="right">
+        <Box
+          flex={1}
+          display="flex"
+          justifyContent="flex-end"
+          alignItems="center"
+        >
           <Button
             marginRight={1}
             variant="ghost"

@@ -80,7 +80,7 @@ const Contact = () => {
   return (
     <>
       <NavBar />
-      <Container paddingTop={50}>
+      <Container paddingTop={5}>
         <Section delay={0.2}>
           <Heading as="h2" variant="section-title" paddingTop={10}>
             <StyleSectionTitle>{t('contact')}</StyleSectionTitle>
@@ -157,7 +157,7 @@ const Contact = () => {
 
         {/* Links */}
         <Section delay={0.25}>
-          <List className="flex mt-16 justify-center">
+          <List className="flex justify-center mt-16">
             <ListItem>
               <Link href="https://github.com/slicycode" target="_blank">
                 <Button
